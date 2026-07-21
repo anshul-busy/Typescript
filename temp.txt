@@ -1,0 +1,15 @@
+TC code => Lexer => Parser => Binder =>Checker => Emmiter => .js , d.ts , js.map , .d.ts.map
+
+
+TypeScript code (.ts): Your source file.
+
+Lexer / Scanner: Reads characters and creates tokens, such as let, name, =, and 123.
+
+Parser: Organizes tokens into an AST—a tree that represents the program structure.
+
+Binder: Connects declarations to their scopes. For example, it knows which name variable a reference belongs to.
+
+Type checker: Validates types and reports errors, such as assigning a string to a number.
+
+Emitter: Converts the checked program into JavaScript and optional supporting files.
+ 
