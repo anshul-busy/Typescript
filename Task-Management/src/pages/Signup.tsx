@@ -36,6 +36,7 @@ function handleSubmit (e: React.SubmitEvent<HTMLFormElement>){
         setError(null)
         console.log("User registered successfully");
         localStorage.setItem("user", email)
+        localStorage.setItem("password", password)
         navigate("/dashboard");
 }
 
@@ -52,7 +53,7 @@ function handleSubmit (e: React.SubmitEvent<HTMLFormElement>){
         <input type="password" placeholder="Password" value={password} onChange={ (e)=>setPassword(e.target.value) }/>
         <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={ (e)=>setConfirmPassword(e.target.value) } />
 
-        <button type="submit">Create Account</button>
+        <button id = "signup-btn" type="submit">Create Account</button>
       
       {
             <p style={{ color: "red" }}>{error}</p>

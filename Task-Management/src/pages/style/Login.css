@@ -1,18 +1,11 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-}
 
-/* Center container */
 .container {
-  height: 100vh;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Login card */
 .login-box {
   background: white;
   padding: 30px;
@@ -25,35 +18,33 @@ body {
 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
-
-/* Title */
 .login-box h2 {
   text-align: center;
   margin-bottom: 10px;
 }
 
-/* Inputs + Button */
 input,
-button {
+#login-btn {
   width: 100%;
   height: 40px;
   box-sizing: border-box;
   border-radius: 6px;
 }
-
-
+#login-btn{
+  background: #007aff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
 input {
   border: 1px solid #ccc;
   padding: 0 10px;
 }
-
 input:focus {
   outline: none;
   border: 2px solid #007aff;
 }
-
-
-
 .switch-text {
   text-align: center;
   font-size: 14px;
@@ -70,4 +61,67 @@ input:focus {
   text-decoration: none;
   color: #007aff;
   font-weight: bold;
+}
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  
+}
+.login-options p{
+   display: flex;
+   justify-content: center;
+
+}
+.remember {
+  display: flex;
+  align-items: inherit;
+  cursor: pointer;
+gap: 10px;
+  
+}
+.login-options input{
+  height: 15px;
+}
+
+.forgot {
+  color: #007aff;;
+  cursor: pointer;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+.continue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.continue hr {
+  flex: 1; /* makes lines stretch */
+  border: none;
+  height: 1px;
+  background: #ccc;
+}
+
+.continue span {
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+}
+.buttons{
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  height: 40px;
+  
+}
+
+.btn1 , .btn2 {
+  display: flex;
+   justify-content: center;
+
 }
