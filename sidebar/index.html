@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+
+<div class="layout">
+  <div class="sidebar">
+    <h2 class="logo">Dashboard</h2>
+
+    <a href="#" class="nav-item active">Dashboard</a>
+    <a href="#" class="nav-item">Projects</a>
+    <a href="#" class="nav-item">Users</a>
+    <a href="#" class="nav-item">Settings</a>
+  </div>
+
+  <div class="content">
+  </div>
+</div>
+<script>
+  const links = document.querySelectorAll(".nav-item");
+
+  links.forEach(link => {
+    link.addEventListener("click", function () {
+      links.forEach(l => l.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+</script>
+</body>
+</html>
