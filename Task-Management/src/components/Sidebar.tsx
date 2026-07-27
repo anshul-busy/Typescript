@@ -1,6 +1,6 @@
 
 import { Children, type ReactNode } from "react";
-import "./Style.css"
+import "./styles/Style.css"
 import { NavLink, Route, Routes } from "react-router-dom";
 
 interface SidebarProps {
@@ -23,6 +23,8 @@ const Sidebar = ({ heading ,children}: SidebarProps) => {
 
   <NavLink to="/task" className="nav-item">
     Tasks
+
+
   </NavLink>
 
   {/* <NavLink to="/projects" className="nav-item">
