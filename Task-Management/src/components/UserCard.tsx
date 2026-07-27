@@ -31,6 +31,12 @@ const UserCard = ({ user }: Props) => {
       <p><strong>Username:</strong> {user.username}</p>
       <p><strong>Email:</strong> {user.email}</p>
       <p><strong>Phone:</strong> {user.phone}</p>
+
+    <div className="btn-p">
+      <button className="btn">
+        View Assigned task
+      </button>
+      </div>
     </div>
   );
 };

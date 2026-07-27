@@ -17,27 +17,34 @@ const Sidebar = ({ heading ,children}: SidebarProps) => {
   <div className="sidebar">
   <h2 className="logo">{heading}</h2>
 
-  <NavLink to="/dashboard" className="nav-item">
-    Dashboard
+    <NavLink to="/dashboard" className="nav-item">
+      <span className="nav-icon">📊</span> Dashboard
+    </NavLink>
+
+    <NavLink to="/tasks" className="nav-item">
+      <span className="nav-icon">📋</span> View Assigned Tasks
+    </NavLink>
+
+    <NavLink to="/employees" className="nav-item">
+      <span className="nav-icon">👥</span> Employees
+
+    </NavLink>
+
+    <NavLink to="/users" className="nav-item">
+      <span className="nav-icon">👤</span> Users
+    
+    </NavLink>
+
+    <NavLink to="/settings" className="nav-item">
+      <span className="nav-icon">⚙️</span> Settings
+    </NavLink>
+  
+
+  <NavLink to="/" className="nav-item logout-item">
+   <span className="nav-icon">⏻</span> Logout
   </NavLink>
 
-  <NavLink to="/task" className="nav-item">
-    Tasks
 
-
-  </NavLink>
-
-  {/* <NavLink to="/projects" className="nav-item">
-    Projects
-  </NavLink>
-`
-  <NavLink to="/projects" className="nav-item">
-    Users
-  </NavLink>
-
-  <NavLink to="/projects" className="nav-item">
-    Settings
-  </NavLink> */}
 </div>
 
   <div className="content">

@@ -64,3 +64,13 @@
   background: #ccc;
   border-radius: 10px;
 } */
+.nav-item p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 10px;
+}
+
+.logout-item {
+  margin-top: auto;
+}

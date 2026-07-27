@@ -4,8 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from './pages/Dashboard';
-import Task from './pages/Task';
-
+import Employees from './pages/Employees';
+import Tasks from "./pages/Tasks";
 
 
 function App() {
@@ -18,7 +18,8 @@ function App() {
       <Route path="/" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/task" element={<Task />} />
+      <Route path="/employees" element={<Employees />} />
+      <Route path="/tasks" element={<Tasks />} />
     </Routes>
     
     </>
