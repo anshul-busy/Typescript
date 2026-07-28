@@ -101,7 +101,7 @@ gap: 10px;
 }
 
 .continue hr {
-  flex: 1; /* makes lines stretch */
+  flex: 1; 
   border: none;
   height: 1px;
   background: #ccc;

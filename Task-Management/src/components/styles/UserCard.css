@@ -1,10 +1,8 @@
-/* 1. The outer wrapper that holds the 3D perspective */
 .card-container {
   width: 100%;
   perspective: 1000px;
 }
 
-/* 2. The inner element that actually rotates */
 .card-inner {
   position: relative;
   width: 100%;
@@ -13,12 +11,10 @@
   transform-style: preserve-3d;
 }
 
-/* 3. When React adds the .flipped class, rotate the inner wrapper */
 .card-container.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
-/* 4. Refactored .card styles applied to BOTH front and back sides */
 .card-front, .card-back {
   display: flex;
   justify-content: center;
@@ -29,36 +25,31 @@
   border-radius: 12px;
   background-color: white;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  box-sizing: border-box; 
   
-  /* Crucial properties for flipping */
   backface-visibility: hidden; 
-  -webkit-backface-visibility: hidden; /* Safari support */
+  -webkit-backface-visibility: hidden; 
 }
 
-/* Small hover lift effect on the container instead of the card */
 .card-container:hover {
   transform: translateY(-5px);
   transition: 0.2s ease;
 }
 
-/* 5. Keep front side normal */
 .card-front {
   z-index: 2;
   transform: rotateY(0deg);
 }
 
-/* 6. Pre-rotate the back side so it displays right-side up after the flip */
 .card-back {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   transform: rotateY(180deg);
-  background-color: #f9f9f9; /* Optional color change for back side */
+  background-color: #f9f9f9; 
 }
 
-/* Reused typography & button styles */
 .card-front h3, .card-back h3 {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -85,7 +76,7 @@
 }
 
 .back-btn {
-  background-color: black; /* Dark grey for the return button */
+  background-color: black; 
 }
 #backbtn{
   margin-top: 210px;
