@@ -9,5 +9,6 @@ const URL = "https://jsonplaceholder.typicode.com/users";
 
 export const getUsers = async (): Promise<User[]> => {
   const res = await axios.get<User[]>(URL);
+  
   return res.data;
 };

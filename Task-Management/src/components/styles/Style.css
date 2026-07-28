@@ -51,6 +51,7 @@
 }
 
 .content {
+  /* display: flex; */
   margin-left: 300px; 
   flex: 1;
   min-height: 100vh;

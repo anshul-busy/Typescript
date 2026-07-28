@@ -1,13 +1,15 @@
 
 
+
+
 import "./style/Tasks.css"
 
 import Sidebar from '../components/Sidebar'
 
 
 import { useEffect, useState } from "react";
-import { getUsers, type User } from "../services/UsersService";
-import type { Task, TaskStatus } from "../types/task";
+import { getUsers, type User } from "../services/usersService";
+import type { Task, TaskStatus } from "../types/Task";
 
 const Tasks = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -17,12 +19,9 @@ const Tasks = () => {
   });
   const [search, setSearch] = useState("");
 
- useEffect(() => {
+ useEffect(() => {              // Add newly created task in memory
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
-
-
-
 
   const [form, setForm] = useState({
     title: "",
@@ -35,13 +34,13 @@ const Tasks = () => {
     getUsers().then(setUsers);
   }, []);
 
-  
   const handleAdd = () => {
     const user = users.find(u => u.id === Number(form.assignedTo));
 
-    if (!user) return;
+    if (!user) {
+      return;}
 
-    const newTask: Task = {
+    const newTask: Task = {         //creates new task
       id: Date.now(),
       title: form.title,
       description: form.description,
@@ -50,7 +49,7 @@ const Tasks = () => {
       status: form.status
     };
 
-    setTasks(prev => [...prev, newTask]);
+    setTasks(prev => [...prev, newTask]); // will change the value of task and will call localStorage.setItem
   };
 
 
@@ -73,13 +72,24 @@ const Tasks = () => {
   );
 
   return (
-     <Sidebar heading="Tasks">
+     <Sidebar heading="📋 Tasks">
 
         
-    <h2>Task Manager</h2>
+    <h2>📋 Task </h2>
+
+
+      <div className="search-container">
+        <input
+          className="input-field search-field"
+          placeholder="🔎 Search tasks..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+        />
+      </div>
 
 
       <div className="task-form">
+
         <input
           className="input-field"
           placeholder="Title"
@@ -89,6 +99,7 @@ const Tasks = () => {
 
         <input
           className="input-field"
+               id="desc"
           placeholder="Description"
           value={form.description}
           onChange={e => setForm({ ...form, description: e.target.value })}
@@ -122,14 +133,6 @@ const Tasks = () => {
       </div>
 
 
-      <div className="search-container">
-        <input
-          className="input-field search-field"
-          placeholder="Search tasks..."
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-        />
-      </div>
 
     
       <div className="task-list">
@@ -166,3 +169,4 @@ const Tasks = () => {
 };
 
 export default Tasks;
+

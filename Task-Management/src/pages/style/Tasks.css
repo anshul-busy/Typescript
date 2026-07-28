@@ -26,11 +26,16 @@
   margin-top: 40px;
 }
 
+#desc{
+  height: 150px;
+}
+
 .input-field, .select-field {
+  width: 70vh;
   padding: 10px 14px;
   font-size: 15px;
   border: 1px solid #dcdcdc;
-  border-radius: 6px;
+  border-radius: 10px;
   outline: none;
   transition: border-color 0.2s;
   background-color: #fff;
@@ -43,6 +48,7 @@
 
 
 .btn-primary {
+    width: 20%;
   padding: 12px;
   font-size: 15px;
   font-weight: 600;
@@ -60,11 +66,14 @@
 
 
 .search-container {
+  display: flex;
+  justify-content: center;
   margin-bottom: 24px;
 }
 
 .search-field {
-  width: 100%;
+  margin-top: 30px;
+  width: 60%;
   box-sizing: border-box;
 }
 

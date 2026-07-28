@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar'
 import "./style/Employee.css"
 import axios from 'axios';
 import UserCard from '../components/UserCard';
+
 type UserType= {
     id:number;
     name:string;
@@ -41,7 +42,7 @@ const [data, setData]= useState<UserType[]>([])
   },[])
 
   return (
-      <Sidebar heading="💻 Employees">
+      <Sidebar heading="💻 Employees overview">
               <h1>💻 Employees overview</h1>
       <div className="head">
 

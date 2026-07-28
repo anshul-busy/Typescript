@@ -2,6 +2,7 @@
 import { Children, type ReactNode } from "react";
 import "./styles/Style.css"
 import { NavLink, Route, Routes } from "react-router-dom";
+import DownloadCard from "./DownloadCard";
 
 interface SidebarProps {
   heading: string;
@@ -22,7 +23,7 @@ const Sidebar = ({ heading ,children}: SidebarProps) => {
     </NavLink>
 
     <NavLink to="/tasks" className="nav-item">
-      <span className="nav-icon">📋</span> View Assigned Tasks
+      <span className="nav-icon">📋</span> View Tasks
     </NavLink>
 
     <NavLink to="/employees" className="nav-item">
@@ -39,7 +40,8 @@ const Sidebar = ({ heading ,children}: SidebarProps) => {
       <span className="nav-icon">⚙️</span> Settings
     </NavLink>
   
-
+    <DownloadCard />
+    
   <NavLink to="/" className="nav-item logout-item">
    <span className="nav-icon">⏻</span> Logout
   </NavLink>
