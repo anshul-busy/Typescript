@@ -10,11 +10,20 @@ type Props = {
 const getStatus = (userId: number, tasks: Task[]) => {
   const userTasks = tasks.filter(t => t.assignedTo === userId);
 
-  if (userTasks.length === 0) return "pending";
 
+  if (userTasks.length === 0) {
+    return "pending";
+  }
+
+  const hasInProgress = userTasks.some(t => t.status === "In-progress");
   const hasPending = userTasks.some(t => t.status === "Pending");
+  const allCompleted = userTasks.every(t => t.status === "Completed");
 
-  return hasPending ? "in-progress" : "complete";
+  if (allCompleted) return "complete";
+  if (hasInProgress) return "in-progress";
+  if (hasPending) return "pending";
+
+  return "pending";
 };
 
 const getStatusLabel = (status: string) => {

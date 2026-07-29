@@ -120,8 +120,13 @@
 }
 
 .status-badge.pending {
-  background-color: #fef3c7;
-  color: #d97706;
+    background: #f8d7da;
+  color: #c0392b;
+}
+
+.status-badge.in-progress {
+  background: #fff3cd;
+  color: #b58900;
 }
 
 .status-badge.completed {

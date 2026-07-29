@@ -1,11 +1,5 @@
-
-
-
-
-import "./style/Tasks.css"
-
-import Sidebar from '../components/Sidebar'
-
+import "./style/Tasks.css";
+import Sidebar from '../components/Sidebar';
 
 import { useEffect, useState } from "react";
 import { getUsers, type User } from "../services/usersService";
@@ -13,15 +7,12 @@ import type { Task, TaskStatus } from "../types/Task";
 
 const Tasks = () => {
   const [users, setUsers] = useState<User[]>([]);
-    const [tasks, setTasks] = useState<Task[]>(() => {
+  const [tasks, setTasks] = useState<Task[]>(() => {
     const stored = localStorage.getItem("tasks");
     return stored ? JSON.parse(stored) : [];
   });
-  const [search, setSearch] = useState("");
 
- useEffect(() => {              // Add newly created taskin memory
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+  const [search, setSearch] = useState("");
 
   const [form, setForm] = useState({
     title: "",
@@ -30,17 +21,21 @@ const Tasks = () => {
     status: "Pending" as TaskStatus
   });
 
+  
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+
   useEffect(() => {
     getUsers().then(setUsers);
   }, []);
 
   const handleAdd = () => {
     const user = users.find(u => u.id === Number(form.assignedTo));
+    if (!user) return;
 
-    if (!user) {
-      return;}
-
-    const newTask: Task = {         //creates new task
+    const newTask: Task = {
       id: Date.now(),
       title: form.title,
       description: form.description,
@@ -49,34 +44,44 @@ const Tasks = () => {
       status: form.status
     };
 
-    setTasks(prev => [...prev, newTask]); // will change the value of task and will call localStorage.setItem
-  };
+    setTasks(prev => [...prev, newTask]);
 
+   
+    setForm({
+      title: "",
+      description: "",
+      assignedTo: "",
+      status: "Pending"
+    });
+  };
 
   const handleDelete = (id: number) => {
     setTasks(tasks.filter(t => t.id !== id));
   };
 
-
   const toggleStatus = (id: number) => {
     setTasks(tasks.map(t =>
       t.id === id
-        ? { ...t, status: t.status === "Pending" ? "Completed" : "Pending" }
+        ? {
+            ...t,
+            status:
+              t.status === "Pending"
+                ? "In-progress"
+                : t.status === "In-progress"
+                ? "Completed"
+                : "Pending"
+          }
         : t
     ));
   };
-
 
   const filteredTasks = tasks.filter(t =>
     t.title.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-     <Sidebar heading="📋 Tasks">
-
-        
-    <h2>📋 Task </h2>
-
+    <Sidebar heading="📋 Tasks">
+      <h2>📋 Task</h2>
 
       <div className="search-container">
         <input
@@ -87,9 +92,7 @@ const Tasks = () => {
         />
       </div>
 
-
       <div className="task-form">
-
         <input
           className="input-field"
           placeholder="Title"
@@ -99,7 +102,7 @@ const Tasks = () => {
 
         <input
           className="input-field"
-               id="desc"
+          id="desc"
           placeholder="Description"
           value={form.description}
           onChange={e => setForm({ ...form, description: e.target.value })}
@@ -124,6 +127,7 @@ const Tasks = () => {
           onChange={e => setForm({ ...form, status: e.target.value as TaskStatus })}
         >
           <option value="Pending">Pending</option>
+          <option value="In-progress">In-progress</option>
           <option value="Completed">Completed</option>
         </select>
 
@@ -132,41 +136,43 @@ const Tasks = () => {
         </button>
       </div>
 
-
-
-    
       <div className="task-list">
         {filteredTasks.map(task => (
           <div key={task.id} className="task-card">
             <h4>{task.title}</h4>
             <p className="task-desc">{task.description}</p>
+
             <p className="task-meta">
               <strong>Assigned to:</strong> {task.assignedName}
             </p>
+
             <p className="task-meta">
-              <strong>Status:</strong>{' '}
+              <strong>Status:</strong>{" "}
               <span className={`status-badge ${task.status.toLowerCase()}`}>
                 {task.status}
               </span>
             </p>
 
             <div className="task-actions">
-              <button className="btn-secondary" onClick={() => toggleStatus(task.id)}>
+              <button
+                className="btn-secondary"
+                onClick={() => toggleStatus(task.id)}
+              >
                 Toggle Status
               </button>
 
-              <button className="btn-danger" onClick={() => handleDelete(task.id)}>
+              <button
+                className="btn-danger"
+                onClick={() => handleDelete(task.id)}
+              >
                 Delete
               </button>
             </div>
           </div>
         ))}
       </div>
-
-
-     </Sidebar>
+    </Sidebar>
   );
 };
 
 export default Tasks;
-
