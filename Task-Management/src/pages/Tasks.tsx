@@ -1,3 +1,6 @@
+
+
+
 import "./style/Tasks.css";
 import Sidebar from '../components/Sidebar';
 
@@ -6,7 +9,10 @@ import { getUsers, type User } from "../services/usersService";
 import type { Task, TaskStatus } from "../types/Task";
 
 const Tasks = () => {
+
+
   const [users, setUsers] = useState<User[]>([]);
+
   const [tasks, setTasks] = useState<Task[]>(() => {
     const stored = localStorage.getItem("tasks");
     return stored ? JSON.parse(stored) : [];
@@ -33,7 +39,11 @@ const Tasks = () => {
 
   const handleAdd = () => {
     const user = users.find(u => u.id === Number(form.assignedTo));
-    if (!user) return;
+    if (!user) {
+      console.log("No user found");
+      return;
+    }
+
 
     const newTask: Task = {
       id: Date.now(),
@@ -63,11 +73,8 @@ const Tasks = () => {
     setTasks(tasks.map(t =>
       t.id === id
         ? {
-            ...t,
-            status:
-              t.status === "Pending"
-                ? "In-progress"
-                : t.status === "In-progress"
+            ...t, status:t.status === "Pending"? "In-progress"
+: t.status === "In-progress"
                 ? "Completed"
                 : "Pending"
           }
@@ -116,7 +123,8 @@ const Tasks = () => {
           <option value="">Assign User</option>
           {users.map(u => (
             <option key={u.id} value={u.id}>
-              {u.name}
+              {u.name} <p>( {u.email} )</p>
+             
             </option>
           ))}
         </select>
