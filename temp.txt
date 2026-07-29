@@ -7,9 +7,20 @@ Lexer / Scanner: Reads characters and creates tokens, such as let, name, =, and 
 
 Parser: Organizes tokens into an AST—a tree that represents the program structure.
 
+    AST means Abstract Syntax Tree.
+    It is a tree-like internal representation of your code after parsing.
+
+    VariableDeclaration
+    ├─ name: total
+    └─ value: BinaryExpression
+        ├─ 2
+        ├─ +
+        └─ 3
+
 Binder: Connects declarations to their scopes. For example, it knows which name variable a reference belongs to.
 
 Type checker: Validates types and reports errors, such as assigning a string to a number.
 
 Emitter: Converts the checked program into JavaScript and optional supporting files.
  
+
