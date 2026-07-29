@@ -53,7 +53,7 @@ const UserCard = ({ user }: Props) => {
         </div>
 
 
-        <div className="card-back">
+        {/* <div className="card-back">
           <h3>Assigned Tasks</h3>
           <p>Task 1: Complete UI Layout</p>
           <p>Task 2: Fix CSS bugs</p>
@@ -63,7 +63,7 @@ const UserCard = ({ user }: Props) => {
               Go Back
             </button>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </div>

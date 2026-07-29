@@ -19,7 +19,7 @@ const Tasks = () => {
   });
   const [search, setSearch] = useState("");
 
- useEffect(() => {              // Add newly created task in memory
+ useEffect(() => {              // Add newly created taskin memory
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 

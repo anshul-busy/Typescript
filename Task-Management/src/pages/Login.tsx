@@ -19,6 +19,7 @@ useEffect(() => {
 }, []);
 
 function handleLogin (e: React.SubmitEvent<HTMLFormElement>){
+  //fn for validating the email id ans password
     
   e.preventDefault()
 
@@ -40,8 +41,6 @@ function handleLogin (e: React.SubmitEvent<HTMLFormElement>){
         setError(null)
         console.log("Login successful");
         navigate("/dashboard");
-
-        
 } 
 
 
@@ -95,14 +94,15 @@ return (
   <hr />
 </div>
 
-    <div className="buttons">
-      <div className="btn1">
-        <button> <FcGoogle /> Google</button>
-      </div>
-      <div className="btn2">
-        <button> <FaGithub /> Github</button>
-      </div>
-    </div>
+      <div className="cont-btn">
+        
+                <button><FcGoogle />Google</button>
+        
+       
+            <button><FaGithub /> Google</button>
+            
+        </div>
+
 
       <p className="switch-text">
         Dont have an account?{" "}
