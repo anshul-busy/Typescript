@@ -31,14 +31,13 @@ const Sidebar = ({ heading ,children}: SidebarProps) => {
 
     </NavLink>
 
-    <NavLink to="/users" className="nav-item">
+    {/* <NavLink to="/users" className="nav-item">
       <span className="nav-icon">👤</span> Users
-    
     </NavLink>
 
     <NavLink to="/settings" className="nav-item">
       <span className="nav-icon">⚙️</span> Settings
-    </NavLink>
+    </NavLink> */}
   
     <DownloadCard />
     

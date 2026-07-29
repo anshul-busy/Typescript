@@ -8,13 +8,16 @@ import Employees from './pages/Employees';
 import Tasks from "./pages/Tasks";
 
 
+
 function App() {
   
   return (
   <>
-{/* <Sidebar heading="My App" /> */}
+
 
      <Routes>
+
+
       <Route path="/" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/dashboard" element={<Dashboard />} />

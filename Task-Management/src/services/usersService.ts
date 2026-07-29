@@ -3,6 +3,7 @@ import axios from "axios";
 export interface User {
   id: number;
   name: string;
+  email:string
 }
 
 const URL = "https://jsonplaceholder.typicode.com/users";

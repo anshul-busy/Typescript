@@ -45,11 +45,11 @@ const UserCard = ({ user }: Props) => {
           <p><strong>Email:</strong> {user.email}</p>
           <p><strong>Phone:</strong> {user.phone}</p>
 
-          <div className="btn-p">
+          {/* <div className="btn-p">
             <button className="btn" onClick={handleFlip}>
               View Assigned task
             </button>
-          </div>
+          </div> */}
         </div>
 
 
