@@ -1,6 +1,0 @@
-
-const URL = ""
-
-function fetchData(){
-
-}
